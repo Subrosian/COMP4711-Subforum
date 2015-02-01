@@ -14,7 +14,7 @@ class Posts extends CI_Model {
         array('username' => 'Jacob', 'subject' => 'Welcome to the forum!', 'date'=>'Jan. 31/15', 'message' => 'Welcome to Subrosian\'s home-made forum. Hope I get some activity around here :D'),
     );
     var $data_avatars = array(
-        array('Subrosian' => 'asubrosian.png')
+        'Subrosian' => 'asubrosian.png'
     );
 
     // Constructor
@@ -28,12 +28,11 @@ class Posts extends CI_Model {
         //if data_avatars contains an element with the username of the post, then append the corresponding avatar to the post
         //else, append a default avatar
         foreach ($this->data_announcements as &$post) {
-            if(isset($this->data_avatars[$post['username']]))
-            {
-                $post['avatar'] = $this->data_avatars[$post['username']]; 
-            }
-            else
+            if (isset($this->data_avatars[$post['username']])) {
+                $post['avatar'] = $this->data_avatars[$post['username']];
+            } else {
                 $post['avatar'] = 'default_avatar.png';
+            }
         }        
         return $this->data_announcements;
     }
