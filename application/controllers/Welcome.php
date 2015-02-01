@@ -27,7 +27,11 @@ class Welcome extends Application {
         foreach ($source as $record) {
             $authors[] = array('who' => $record['who'], 'mug' => $record['mug'], 'href' => $record['where']);
         }
-        $this->data['authors'] = $authors;
+        $this->data['authors'] = $authors; /*fills the authors data in:
+            {authors}
+            <div class="span4"><a href="{href}"><img src="/data/{mug}" title="{who}"/></a></div>
+            {/authors}
+         *          */
 
         $this->render();
     }
