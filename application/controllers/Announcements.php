@@ -4,11 +4,11 @@
  * Our homepage. Show a table of all the author pictures. Clicking on one should show their quote.
  * Our quotes model has been autoloaded, because we use it everywhere.
  * 
- * controllers/Welcome.php
+ * controllers/Announcements.php
  *
  * ------------------------------------------------------------------------
  */
-class Guess extends Application {
+class Announcements extends Application {
 
     function __construct() {
         parent::__construct();
@@ -26,7 +26,7 @@ class Guess extends Application {
         $this->data = array_merge($this->data, $record);
         $posts = $this->posts->get_announcements();
         
-        $this->data['posts'] = $posts; /*fills the authors data in:
+        $this->data['posts'] = $posts;
 
         $this->render();
     }
