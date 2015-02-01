@@ -21,9 +21,7 @@ class Announcements extends Application {
     function index() {
         $this->data['pagebody'] = 'forum';    // the view we want shown
         
-        //get the author and corresponding quote from the Quotes model, to pass on to our view
-        $record = $this->quotes->get(4);
-        $this->data = array_merge($this->data, $record);
+        //get the posts from the Announcements (currently called Posts) model, to pass on to our view
         $posts = $this->posts->get_announcements();
         
         $this->data['posts'] = $posts;
