@@ -36,7 +36,9 @@ be incorporated by the next assignment.
 What could be done better:
 There are some redundant lines in the controllers, which I could resolve through creating a parent controller
 as I continue working on this webapp.
+As of now, I have not incorporated any new graphics.
 
-This assignment was based off of our Lab 3, due to convenience.
+This assignment was based off of our Lab 3, due to convenience. Unfortunately as of now, not much has yet been done
+to customize the layout of this website, and so what I have is based on the Lab 3.
     </pre></p>
 </div>
