@@ -11,6 +11,10 @@ class Quotes extends CI_Model {
     // The data comes from http://www.quotery.com/top-100-funny-quotes-of-all-time/?PageSpeed=noscript
     var $data = array(
         array('id' => '1', 'who' => 'Announcements', 'mug' => 'bob-monkhouse-150x150.jpg', 'where'=>'/announcements',
+            'what' => 'When I die, I want to go peacefully like my grandfather did–in his sleep. Not yelling and screaming like the passengers in his car.'),
+        array('id' => '2', 'who' => 'Announcements', 'mug' => 'bob-monkhouse-150x150.jpg', 'where'=>'/general',
+            'what' => 'When I die, I want to go peacefully like my grandfather did–in his sleep. Not yelling and screaming like the passengers in his car.'),
+        array('id' => '3', 'who' => 'Announcements', 'mug' => 'bob-monkhouse-150x150.jpg', 'where'=>'/gaming',
             'what' => 'When I die, I want to go peacefully like my grandfather did–in his sleep. Not yelling and screaming like the passengers in his car.')
     );
 
