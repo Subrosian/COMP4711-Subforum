@@ -2,8 +2,7 @@
     <h2>{heading}</h2>
     <p><pre>This webapp is created by Abel Jacob Lim, from set 4O.
 
-I'm considering creating a personalized message board. which I could use for my own website, where my website can double as a portfolio (in which the forum would also be one of the artifacts). This is where a theme of my own website is having much of the site as hand-coded by myself.
-Also, participating and posting in message boards on various websites online used to be an activity I used to do regularly and enjoy, so building a message board webapp would be something that I would like to learn how to do.
+This webapp is a personalized message board. I intend to incorporate this message board into my own website, doubling as an artifact.
 
 The message board will include:
     -3 separate "forums" accessible by the navigation bar.  One of the forums would be an "Announcements" forum
