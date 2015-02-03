@@ -32,7 +32,9 @@ As of now, the layout designs have not been implemented. I focused on getting th
 implementing the layout and incorporating images, CSS files, and scripts under the assets.
 Assets for this webapp, such as images, and scripts, are not yet implemented, however; these are to
 be incorporated by the next assignment.
-Also, the use of a drop-down to select between layouts is also to be done.
+Also to be done for the next assignment include:
+    -the use of a drop-down to select between layouts
+    -a more customized template
 
 What could be done better:
 This assignment was based off of our Lab 3, due to convenience. Unfortunately as of now, not much has yet been done
