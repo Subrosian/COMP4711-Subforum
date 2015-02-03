@@ -19,19 +19,10 @@ class Welcome extends Application {
     //-------------------------------------------------------------
 
     function index() {
-        $this->data['pagebody'] = 'homepage';    // this is the view we want shown
+        $this->data['pagebody'] = 'homepage';
         
-        //get the author and corresponding quote from the Quotes model, to pass on to our view
-        $source = $this->quotes->all();
-        $authors = array();
-        foreach ($source as $record) {
-            $authors[] = array('who' => $record['who'], 'mug' => $record['mug'], 'href' => $record['where']);
-        }
-        $this->data['authors'] = $authors; /*fills the authors data in:
-            {authors}
-            <div class="span4"><a href="{href}"><img src="/data/{mug}" title="{who}"/></a></div>
-            {/authors}
-         *          */
+        //merge the data of the home view with that of the homemodel
+        $this->data = array_merge($this->data,$this->homemodel->all());        
 
         $this->render();
     }

@@ -32,9 +32,11 @@ As of now, the layout designs have not been implemented. I focused on getting th
 implementing the layout and incorporating images, CSS files, and scripts under the assets.
 Assets for this webapp, such as images (including a custom logo), and scripts, are not yet implemented, however; these are to
 be incorporated by the next assignment.
+CSS is yet to be implemented; note that the CSS is planned to be what will organize the positions of the various items in the layouts of the site in order to match the wireframes designed for this webapp. So as of now, pretty much everything is just laid down from top to bottom, the layouts not yet matching the intended design as of this assignment.
 Also to be done for the next assignment include:
     -the use of a drop-down to select between layouts
     -a more customized template
+    -logic to generate the content of the homepage
 
 What could be done better:
 This assignment was based off of our Lab 3, due to convenience. Unfortunately as of now, not much has yet been done

@@ -23,15 +23,20 @@ class Posts extends CI_Model {
 
     // retrieve all of the announcement posts
     public function get_posts() {
-        //get avatar for the user, and append it to each of the post data elements, where:
-        //if data_avatars contains an element with the username of the post, then append the corresponding avatar to the post
-        //else, append a default avatar
+        $postnum = 0;
         foreach ($this->data as &$post) {
+            //get avatar for the user, and append it to each of the post data elements, where:
+            //if data_avatars contains an element with the username of the post, then append the corresponding avatar to the post
+            //else, append a default avatar
             if (isset($this->user_data->data_avatars[$post['username']])) {
                 $post['avatar'] = $this->user_data->data_avatars[$post['username']];
             } else {
                 $post['avatar'] = 'default_avatar.png';
             }
+            
+            //append the post number to the post
+            $postnum++;
+            $post['postnum'] = $postnum;
         }        
         return $this->data;
     }
