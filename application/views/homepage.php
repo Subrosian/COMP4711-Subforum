@@ -3,10 +3,12 @@
 </div>
 <div class="announcements">
     <div class="ann1">
-        <p>Announcement 1</p>
+        <p>First 200 chars of Announcement 1</p>
+        <p><a href="">Read more...</a></p>
     </div>
     <div class="ann2">
-        <p>Announcement 2</p>
+        <p>First 200 chars of Announcement 2</p>
+        <p><a href="">Read more...</a></p>
     </div>
 </div>
 <div class="recent">
