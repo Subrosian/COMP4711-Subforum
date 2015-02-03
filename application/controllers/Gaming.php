@@ -15,6 +15,19 @@ class Gaming extends Application {
         $title = $this->posts_gaming->get_title();
         $posts = $this->posts_gaming->get_posts();
         
+        //set alternating colors for the posts
+        $altcolor = 0;
+        $numcolors = 3;
+        foreach ($posts as &$post) {
+            switch($altcolor) {
+                case 0: $post['alternatingcolor'] = 'beige'; break;
+                case 1: $post['alternatingcolor'] = 'white'; break;
+                case 2: $post['alternatingcolor'] = '#AAAAAA'; break;
+                default: break;
+            }
+            $altcolor = ($altcolor+1)%$numcolors;
+        }      
+        
         //set the $title and $posts data (an array) for use in the view
         $this->data['title'] = $title;
         $this->data['posts'] = $posts;

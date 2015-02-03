@@ -1,7 +1,7 @@
 <div class="forum">
     {posts}
 <div class="post">
-    {subject} - Posted by {username} <img arc="{avatar}" title="{username}"> at {date}:
+    {subject} - Posted by {username} <img src="{avatar}" title="{username}"> at {date}:
     <p>{message}</p>
 </div>
     {/posts}
