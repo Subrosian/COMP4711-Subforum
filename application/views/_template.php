@@ -23,7 +23,7 @@ if (!defined('APPPATH'))
         <div class="container">
             <div class="navbar">
                 <div class="navbar-inner">
-                    <a class="brand" href="/"><img src="/assets/images/logo.png"/></a>
+                    <a class="brand" href="/"><img src="/assets/images/subforum.png"/></a>
                     {menubar} </div>
             </div>           
             <div id="content">
@@ -31,7 +31,7 @@ if (!defined('APPPATH'))
                 {content}
             </div>
             <div id="footer" class="span12">
-                Copyright &copy; 2014,  <a href="mailto:someone@somewhere.com">Me</a>.
+                Copyright &copy; 2014,  <a href="mailto:abeljacoblim@gmail.com">Jacob Lim</a>, Set 4O.
             </div>
         </div>
         <script src="/assets/js/jquery-1.11.1.min.js"></script>
