@@ -23,7 +23,7 @@ if (!defined('APPPATH'))
         <div class="container">
             <div class="navbar">
                 <div class="navbar-inner">
-                    <a class="brand" href="/"><img src="/assets/images/subforum.png"/></a>
+                    <a class="brand" href="/"><img src="/assets/images/home-logo.png" style="height:32px" /></a>
                     {menubar} </div>
             </div>           
             <div id="content">
