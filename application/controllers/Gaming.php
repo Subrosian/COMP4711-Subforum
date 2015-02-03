@@ -21,8 +21,8 @@ class Gaming extends Application {
         foreach ($posts as &$post) {
             switch($altcolor) {
                 case 0: $post['alternatingcolor'] = 'beige'; break;
-                case 1: $post['alternatingcolor'] = 'white'; break;
-                case 2: $post['alternatingcolor'] = '#AAAAAA'; break;
+                case 1: $post['alternatingcolor'] = '#EEEEEE'; break;
+                case 2: $post['alternatingcolor'] = 'white'; break;
                 default: break;
             }
             $altcolor = ($altcolor+1)%$numcolors;
