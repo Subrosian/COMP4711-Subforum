@@ -32,13 +32,14 @@ As of now, the layout designs have not been implemented. I focused on getting th
 implementing the layout and incorporating images, CSS files, and scripts under the assets.
 Assets for this webapp, such as images, and scripts, are not yet implemented, however; these are to
 be incorporated by the next assignment.
+Also, the use of a drop-down to select between layouts is also to be done.
 
 What could be done better:
-There are some redundant lines in the controllers, which I could resolve through creating a parent controller
-as I continue working on this webapp.
-As of now, I have not incorporated any new graphics.
-
 This assignment was based off of our Lab 3, due to convenience. Unfortunately as of now, not much has yet been done
 to customize the layout of this website, and so what I have is based on the Lab 3.
+As of now, I have not incorporated any new graphics, nor CSS, into my layouts.
+
+There are some redundant lines in the controllers, which I could resolve through creating a parent controller
+as I continue working on this webapp.
     </pre></p>
 </div>

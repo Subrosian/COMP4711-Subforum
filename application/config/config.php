@@ -6,7 +6,6 @@ if (!defined('BASEPATH'))
 // the menu basics (text navbar)
 $config['menu_choices'] = array(
     'menudata' => array(
-        array('name' => 'Home', 'link' => '/'),
         array('name' => 'Announcements', 'link' => '/announcements'),
         array('name' => 'General', 'link' => '/general'),
         array('name' => 'Gaming', 'link' => '/gaming'),
