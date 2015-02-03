@@ -30,7 +30,7 @@ These are the intended usecases for this forum:
 About Assignment 1:
 As of now, the layout designs have not been implemented. I focused on getting the coding done before
 implementing the layout and incorporating images, CSS files, and scripts under the assets.
-Assets for this webapp, such as images, and scripts, are not yet implemented, however; these are to
+Assets for this webapp, such as images (including a custom logo), and scripts, are not yet implemented, however; these are to
 be incorporated by the next assignment.
 Also to be done for the next assignment include:
     -the use of a drop-down to select between layouts
