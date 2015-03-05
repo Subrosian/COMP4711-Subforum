@@ -36,9 +36,20 @@ class Posts extends CI_Model {
             
             //append the post number to the post
             $postnum++;
-            $post['postnum'] = $postnum;
+            $post['postnum'] = $postnum; //postnum equals index+1
         }        
         return $this->data;
+    }
+    public function get_post($postnum) {
+        $post = &$this->data[$postnum-1];
+        //do procedure as with get_posts
+            if (isset($this->user_data->data_avatars[$post['username']])) {
+                $post['avatar'] = $this->user_data->data_avatars[$post['username']];
+            } else {
+                $post['avatar'] = 'default_avatar.png';
+            }
+            $post['postnum'] = $postnum;
+        return $post;
     }
     
 }
