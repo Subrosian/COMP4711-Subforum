@@ -22,7 +22,15 @@ class Welcome extends Application {
         $this->data['pagebody'] = 'homepage';
         
         //merge the data of the home view with that of the homemodel
-        $this->data = array_merge($this->data,$this->homemodel->all());        
+        $this->data = array_merge($this->data,$this->homemodel->all());
+        
+        //retrieve the announcements' data
+        $announcement_1 = $this->posts_announcements->get('1');
+        $announcement_2 = $this->posts_announcements->get('2');
+        $this->data['ann1'] = "Posted by ".$announcement_1->username." at ".$announcement_1->date.": <br>"
+                            . $announcement_1->message;
+        $this->data['ann2'] = "Posted by ".$announcement_2->username." at ".$announcement_2->date.": <br>"
+                            . $announcement_2->message;
 
         $this->render();
     }
