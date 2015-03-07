@@ -25,8 +25,8 @@ class Welcome extends Application {
         $this->data = array_merge($this->data,$this->homemodel->all());
         
         //retrieve the announcements' data
-        $announcement_1 = $this->posts_announcements->get('1');
-        $announcement_2 = $this->posts_announcements->get('2');
+        $announcement_1 = $this->posts_announcements->get($this->posts_announcements->highest());
+        $announcement_2 = $this->posts_announcements->get($this->posts_announcements->highest()-1);
         $this->data['ann1'] = "Posted by ".$announcement_1->username." at ".$announcement_1->date.": <br>"
                             . $announcement_1->message;
         $this->data['ann2'] = "Posted by ".$announcement_2->username." at ".$announcement_2->date.": <br>"

@@ -13,8 +13,14 @@ class Posts extends MY_Model {
     var $title = 'Posts';
 
     // Constructor
-    public function __construct($tablename = null, $keyfield = 'id') {
+    public function __construct() {
+        parent::__construct();
+    }
+    public function __construct2($tablename = null, $keyfield = 'id') {
         parent::__construct($tablename, $keyfield);
+        $this->data = $this->all();
+        foreach($this->data as &$post)
+            $post = (array)$post; //convert stdClass, which is the original type of the array element, to array    
     }
     public function get_title() {
         return $this->title;
