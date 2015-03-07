@@ -6,17 +6,16 @@
  *
  * @author jim
  */
-class Posts extends CI_Model {
+class Posts extends MY_Model {
 
     // Note that avatars are not saved here; they are to be retrieved according to the username in the database.
     var $data = array( );
     var $title = 'Posts';
 
     // Constructor
-    public function __construct() {
-        parent::__construct();
+    public function __construct($tablename = null, $keyfield = 'id') {
+        parent::__construct($tablename, $keyfield);
     }
-    
     public function get_title() {
         return $this->title;
     }
