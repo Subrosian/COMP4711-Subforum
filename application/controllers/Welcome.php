@@ -31,9 +31,6 @@ class Welcome extends Application {
                             . $announcement_1->message;
         $this->data['ann2'] = "Posted by ".$announcement_2->username." at ".$announcement_2->date.": <br>"
                             . $announcement_2->message;
-        
-        //no admin toggling on homepage - only on forums
-        $this->data['toggle_admin'] = "";
 
         $this->render();
     }

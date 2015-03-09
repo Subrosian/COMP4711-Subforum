@@ -87,7 +87,7 @@ img {
 }
 #navigation li {
 	float: left;
-	width: 160px;
+	width: 100px;
 	text-align: center;
 }
 #navigation li a {
@@ -357,6 +357,8 @@ p a {
 	line-height: 36px;
 	padding: 18px 0;
 }
+.errors {color: red; font-weight:bold;}
+.success {color: green;}
 /*------------------------------ FOOTER ------------------------------*/
 #footer {
 	background-color: #eee;

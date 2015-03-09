@@ -10,6 +10,7 @@ $config['menu_choices'] = array(
         array('name' => 'General', 'link' => '/general'),
         array('name' => 'Gaming', 'link' => '/gaming'),
         array('name' => 'About', 'link' => '/about'),
+        array('name' => 'Register', 'link' => '/register'),
         )
     );
 

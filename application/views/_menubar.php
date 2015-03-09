@@ -9,5 +9,4 @@
     <a href="{link}">{name}</a>
     </li>
     {/menudata}
-    
 </ul>

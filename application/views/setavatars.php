@@ -18,5 +18,5 @@
         </tr>
     {/data_avatars}
     </table>
-    {message}
+    (Used for debug purposes: {message})
 </div>

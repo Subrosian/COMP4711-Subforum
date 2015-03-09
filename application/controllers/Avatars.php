@@ -30,7 +30,6 @@ class Avatars extends Application {
             $data_avatar['uploadform'] = form_open_multipart('/avatars/set_avatar');
         }
         $this->data['data_avatars'] = $avatars;
-        $this->data['toggle_admin'] = "";
         
        $this->render();
     }
@@ -94,7 +93,6 @@ class Avatars extends Application {
             $data_avatar['uploadform'] = form_open_multipart('/avatars/set_avatar');
         }
         $this->data['data_avatars'] = $avatars;
-        $this->data['toggle_admin'] = "";
         
       $this->render();
        //redirect('/avatars');

@@ -24,6 +24,7 @@ class Application extends CI_Controller {
         $this->data['title'] = 'Subforum';    // our default title
         $this->errors = array();
         $this->data['pageTitle'] = 'welcome';   // our default page
+        $this->data['toggle_admin'] = "";
 
         //Set layout options here, with preserving which layout is currently selected
         $layout_options = array(
@@ -39,7 +40,13 @@ class Application extends CI_Controller {
      * Render this page
      */
     function render() {
-        $this->data['menubar'] = $this->parser->parse('_menubar', $this->config->item('menu_choices'),true);
+        //if not logged in, display login menu item as well
+        //TBD: Make this occur depending on whether session values are set.
+        $menu_choices = $this->config->item('menu_choices');
+        array_push($menu_choices['menudata'], array('name' => 'Login', 'link' => '/login'));
+        //and if login session value would be set, then instead: array_push($this->config->item('menu_choices'), array('name' => 'Logout', 'link' => '/logout')); is
+        
+        $this->data['menubar'] = $this->parser->parse('_menubar', $menu_choices, true);
         $this->data['content'] = $this->parser->parse($this->data['pagebody'], $this->data, true);
         
         //set which layout is currently selected, if possible.

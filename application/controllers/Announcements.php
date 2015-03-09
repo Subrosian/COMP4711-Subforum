@@ -91,8 +91,6 @@ class Announcements extends Application {
     
     //submit reply
     function submitedit($postnum = 0, $switch = "") {
-        //through post method
-        //include username, password, post content ..., put it into database, redirect back to original post
         
         //Update a record that is to be edited in the database.
         $record = $this->forum_model->get($postnum);
