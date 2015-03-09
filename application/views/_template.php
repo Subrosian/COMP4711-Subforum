@@ -25,6 +25,7 @@ if (!defined('APPPATH'))
 				<a href="/">Subforum</a>
 			</div>
 			{menubar}
+                        {toggle_admin}
 		</div>
 	</div>
 	<div id="contents">

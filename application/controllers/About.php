@@ -27,7 +27,9 @@ class About extends Application {
         
         //set the data (an array) for use in the view - retrieving content
         $this->data = array_merge($this->data, $content);
-        $this->render();
+
+        $this->data['toggle_admin'] = "";
+       $this->render();
     }
 
 }

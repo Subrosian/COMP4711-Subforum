@@ -117,7 +117,7 @@ class General extends Application {
         
         //set the title, username, message, and original post data
         $this->data['title'] = $title;
-        $this->data['given_username'] = $this->forum_model->highest()+1; //was lost from prior commit as well
+        $this->data['given_username'] = "Anonymous"; //was lost from prior commit as well
         $this->data['messagebox'] = "<p>\r\n".$origpost['username']." wrote:<br>\r\n". $origpost['message']."\r\n</p>\r\n\r\n";
         $this->data['submiturl'] = "/".$this->forum_url."/submitreply/".$postnum; //was missing the initial backslash, which led to an error.
         
