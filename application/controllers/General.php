@@ -9,11 +9,13 @@ class General extends Application {
         parent::__construct();
         $this->forum_model = $this->posts_general;
     }
-
+    
     function index() {
         //get the view for the General forum
         //this view is planned to be settable by a drop-down menu, but as of now, this is just the view used for the General forum
-        $this->data['pagebody'] = 'forum_3';
+        if(null != $this->input->post('layout'))
+            $this->forum_view = $this->input->post('layout');
+        $this->data['pagebody'] = $this->forum_view;
         
         //get the title and posts from the Posts_General model
         $title = $this->forum_model->get_title();
@@ -24,19 +26,7 @@ class General extends Application {
                              . "<a href=\"/".$this->forum_url."/quote/".$post['postnum']."\">Quote</a>";
         }
         
-        //set alternating colors for the posts
-        $altcolor = 0;
-        $numcolors = 2;
-        foreach ($posts as &$post) {
-            if($altcolor == 0) {
-                $post['alternatingcolor'] = 'beige';
-                $altcolor = ($altcolor+1)%$numcolors;
-            }
-            else if($altcolor == 1) {
-                $post['alternatingcolor'] = '#EEEEAA';
-                $altcolor = ($altcolor+1)%$numcolors;
-            }
-        }        
+        apply_layout($posts, $this->forum_view);
         
         //set the $title and $posts data (an array) for use in the view
         $this->data['title'] = $title;
@@ -48,6 +38,8 @@ class General extends Application {
     function admin() {
         //get the view for the Announcements forum
         //this view is planned to be settable by a drop-down menu, but as of now, this is just the view used for the Announcements forum
+        if(null != $this->input->post('layout'))
+            $this->forum_view = $this->input->post('layout');
         $this->data['pagebody'] = $this->forum_view;
         
         //get the title and posts from the Posts_Announcements model
@@ -63,19 +55,7 @@ class General extends Application {
                              . "<a href=\"/".$this->forum_url."/delete/".$post['postnum']."/admin\">Delete</a>";
         }
         
-        //set alternating colors for the posts
-        $altcolor = 0;
-        $numcolors = 2;
-        foreach ($posts as &$post) {
-            if($altcolor == 0) {
-                $post['alternatingcolor'] = 'beige';
-                $altcolor = ($altcolor+1)%$numcolors;
-            }
-            else if($altcolor == 1) {
-                $post['alternatingcolor'] = '#EEEEAA';
-                $altcolor = ($altcolor+1)%$numcolors;
-            }
-        }        
+        apply_layout($posts, $this->forum_view);
         
         //set the $title, $posts, and $actions data (an array) for use in the view
         $this->data['title'] = $title;

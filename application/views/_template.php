@@ -31,6 +31,18 @@ if (!defined('APPPATH'))
 	<div id="contents">
             <h1>{title}</h1>
             {content}
+            <br>
+            
+            Layout:
+               <form method="post">
+                    <select name="layout">
+                        <option value="forum_1">Standard</option>
+                        <option value="forum_3">Distinct</option>
+                        <option value="forum_2">Elaborate</option>
+                        <option value="forum_4">Something</option>
+                    </select>
+                   <input type="submit" value="Update">
+               </form>
 	</div>
 	<div id="footer">
 		<div class="clearfix">
@@ -38,9 +50,10 @@ if (!defined('APPPATH'))
 				<a href="http://freewebsitetemplates.com/go/facebook/" target="_blank" class="facebook"></a><a href="http://freewebsitetemplates.com/go/googleplus/" target="_blank" class="googleplus"></a><a href="http://freewebsitetemplates.com/go/twitter/" target="_blank" class="twitter"></a><a href="http://www.freewebsitetemplates.com/misc/contact/" target="_blank" class="tumbler"></a>
 			</div>
 			<p>
-				Copyright &copy; 2014,  <a href="mailto:abeljacoblim@gmail.com">Jacob Lim</a>, Set 4O.
+				Copyright &copy; 2014,  <a href="mailto:abeljacoblim@gmail.com">Jacob Lim</a>, Set 4O. 
 			</p>
 		</div>
+            
 	</div>
 </body>
 </html>

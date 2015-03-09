@@ -10,20 +10,7 @@ class Gaming extends Application {
         $this->forum_model = $this->posts_gaming;
     }
 
-    function index() {
-        //get the view for the Gaming forum
-        //this view is planned to be settable by a drop-down menu, but as of now, this is just the view used for the Gaming forum
-        $this->data['pagebody'] = $this->forum_view;
-        
-        //get the title and posts from the Posts_Gaming model
-        $title = $this->forum_model->get_title();
-        $posts = $this->forum_model->get_posts();
-        
-        foreach($posts as &$post) {
-            $post['actions'] = "<a href=\"/".$this->forum_url."/reply/".$post['postnum']."\">Reply</a> | "
-                             . "<a href=\"/".$this->forum_url."/quote/".$post['postnum']."\">Quote</a>";
-        }
-        
+    function apply_layout(&$posts) {
         //set alternating colors for the posts
         $altcolor = 0;
         $numcolors = 3;
@@ -35,7 +22,26 @@ class Gaming extends Application {
                 default: break;
             }
             $altcolor = ($altcolor+1)%$numcolors;
-        }      
+        }
+    }
+    
+    function index() {
+        //get the view for the Gaming forum
+        //this view is planned to be settable by a drop-down menu, but as of now, this is just the view used for the Gaming forum
+        if(null != $this->input->post('layout'))
+            $this->forum_view = $this->input->post('layout');
+        $this->data['pagebody'] = $this->forum_view;
+        
+        //get the title and posts from the Posts_Gaming model
+        $title = $this->forum_model->get_title();
+        $posts = $this->forum_model->get_posts();
+        
+        foreach($posts as &$post) {
+            $post['actions'] = "<a href=\"/".$this->forum_url."/reply/".$post['postnum']."\">Reply</a> | "
+                             . "<a href=\"/".$this->forum_url."/quote/".$post['postnum']."\">Quote</a>";
+        }
+        
+        apply_layout($posts, $this->forum_view);
         
         //set the $title and $posts data (an array) for use in the view
         $this->data['title'] = $title;
@@ -47,6 +53,8 @@ class Gaming extends Application {
     function admin() {
         //get the view for the Announcements forum
         //this view is planned to be settable by a drop-down menu, but as of now, this is just the view used for the Announcements forum
+        if(null != $this->input->post('layout'))
+            $this->forum_view = $this->input->post('layout');
         $this->data['pagebody'] = $this->forum_view;
         
         //get the title and posts from the Posts_Announcements model
@@ -62,18 +70,7 @@ class Gaming extends Application {
                              . "<a href=\"/".$this->forum_url."/delete/".$post['postnum']."/admin\">Delete</a>";
         }
         
-        //set alternating colors for the posts
-        $altcolor = 0;
-        $numcolors = 3;
-        foreach ($posts as &$post) {
-            switch($altcolor) {
-                case 0: $post['alternatingcolor'] = 'beige'; break;
-                case 1: $post['alternatingcolor'] = '#EEEEEE'; break;
-                case 2: $post['alternatingcolor'] = 'white'; break;
-                default: break;
-            }
-            $altcolor = ($altcolor+1)%$numcolors;
-        }      
+        apply_layout($posts, $this->forum_view);
         
         //set the $title, $posts, and $actions data (an array) for use in the view
         $this->data['title'] = $title;

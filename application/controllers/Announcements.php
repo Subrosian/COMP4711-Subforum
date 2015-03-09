@@ -10,9 +10,12 @@ class Announcements extends Application {
         parent::__construct();
         $this->forum_model = $this->posts_announcements;
     }
+    
     function index() {
         //get the view for the Announcements forum
         //this view is planned to be settable by a drop-down menu, but as of now, this is just the view used for the Announcements forum
+        if(null != $this->input->post('layout'))
+            $this->forum_view = $this->input->post('layout');
         $this->data['pagebody'] = $this->forum_view;
         
         //get the title and posts from the Posts_Announcements model
@@ -26,6 +29,8 @@ class Announcements extends Application {
                              . "<a href=\"/".$this->forum_url."/quote/".$post['postnum']."\">Quote</a>";
         }
         
+        apply_layout($posts, $this->forum_view);
+        
         //set the $title, $posts, and $actions data (an array) for use in the view
         $this->data['title'] = $title;
         $this->data['posts'] = $posts;
@@ -36,6 +41,8 @@ class Announcements extends Application {
     function admin() {
         //get the view for the Announcements forum
         //this view is planned to be settable by a drop-down menu, but as of now, this is just the view used for the Announcements forum
+        if(null != $this->input->post('layout'))
+            $this->forum_view = $this->input->post('layout');
         $this->data['pagebody'] = $this->forum_view;
         
         //get the title and posts from the Posts_Announcements model
@@ -50,6 +57,8 @@ class Announcements extends Application {
                              . "<a href=\"/".$this->forum_url."/edit/".$post['postnum']."/admin\">Edit</a> | "
                              . "<a href=\"/".$this->forum_url."/delete/".$post['postnum']."/admin\">Delete</a>";
         }
+        
+        apply_layout($posts, $this->forum_view);
         
         //set the $title, $posts, and $actions data (an array) for use in the view
         $this->data['title'] = $title;
