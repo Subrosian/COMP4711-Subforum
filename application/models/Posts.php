@@ -28,7 +28,6 @@ class Posts extends MY_Model {
 
     // retrieve all of the announcement posts
     public function get_posts() {
-        $postnum = 0;
         foreach ($this->data as &$post) {
             //get avatar for the user, and append it to each of the post data elements, where:
             //if data_avatars contains an element with the username of the post, then append the corresponding avatar to the post
@@ -38,10 +37,6 @@ class Posts extends MY_Model {
             } else {
                 $post['avatar'] = 'default_avatar.png';
             }
-            
-            //append the post number to the post
-            $postnum++;
-            $post['postnum'] = $postnum; //postnum equals index+1
         }        
         return $this->data;
     }

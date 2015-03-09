@@ -45,5 +45,10 @@ As of now, I have not incorporated any new graphics, nor CSS, into my layouts.
 
 There are some redundant lines in the controllers, which I could resolve through creating a parent controller
 as I continue working on this webapp.
+
+About assignment 2:
+Things to be done:
+    -Make posts nested.
+Note that the widgets at the bottom-right are currently not functional.
     </pre></p>
 </div>
