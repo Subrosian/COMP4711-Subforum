@@ -50,5 +50,9 @@ About assignment 2:
 Things to be done:
     -Make posts nested.
 Note that the widgets at the bottom-right are currently not functional.
+-The controllers currently have a lot of redundancy, as I have had issues with inheriting a parent controller.
+I have an issue where it says that the parent controller is not found. It seems like others have also had this
+issue with CodeIgniter, from what I've seen on stackoverflow.com.
+Alternatively, I could make one controller manage all of the separate forums to avoid this redundancy.
     </pre></p>
 </div>

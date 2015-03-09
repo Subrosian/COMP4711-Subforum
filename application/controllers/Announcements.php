@@ -107,13 +107,7 @@ class Announcements extends Application {
         redirect('/'.$this->forum_url.'/'.$switch);
         
         //Validation for the reply
-        
-
-        //cancel if the reply data was not set
-        //if(!(isset($this->input->post('subject')) && isset($this->input->post('message'))))
-        //    redirect('/announcements');
-        
-        //$this->posts_announcements->
+        //Restrictions: Max character length, 
     }
     
     //delete the post with postnum $postnum
