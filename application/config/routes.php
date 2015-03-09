@@ -41,6 +41,7 @@
 $route['default_controller'] = "welcome";
 $route['404_override'] = '';
 
+$route['forum'] = 'forum';
 $route['announcements'] = 'announcements';
 $route['gaming'] = 'gaming';
 $route['general'] = 'general';

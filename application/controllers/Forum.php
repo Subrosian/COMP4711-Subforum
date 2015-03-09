@@ -3,7 +3,7 @@
 //The Forum controller - base controller
 class Forum extends Application {
 
-    var $forum_view = 'forum_1';
+    var $forum_view;
     var $forum_model;
     var $forum_url;
     function __construct() {
