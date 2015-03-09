@@ -32,8 +32,9 @@ class Posts extends MY_Model {
             //get avatar for the user, and append it to each of the post data elements, where:
             //if data_avatars contains an element with the username of the post, then append the corresponding avatar to the post
             //else, append a default avatar
-            if (isset($this->user_data->data_avatars[$post['username']])) {
-                $post['avatar'] = $this->user_data->data_avatars[$post['username']];
+            $record = $this->user_data->get($post['username']);
+            if (isset($record)) {
+                $post['avatar'] = $record->avatar;
             } else {
                 $post['avatar'] = 'default_avatar.png';
             }
@@ -43,9 +44,10 @@ class Posts extends MY_Model {
     public function get_post($postnum) {
         $post = &$this->data[$postnum-1];
         //do procedure as with get_posts
-            if (isset($this->user_data->data_avatars[$post['username']])) {
-                $post['avatar'] = $this->user_data->data_avatars[$post['username']];
-            } else {
+            $record = $this->user_data->get($post['username']);
+            if (isset($record)) {
+                $post['avatar'] = $record->avatar;
+           } else {
                 $post['avatar'] = 'default_avatar.png';
             }
             $post['postnum'] = $postnum;

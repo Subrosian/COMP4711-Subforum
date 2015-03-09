@@ -80,7 +80,8 @@ class General extends Application {
         //set the $title, $posts, and $actions data (an array) for use in the view
         $this->data['title'] = $title;
         $this->data['posts'] = $posts;
-        $this->data['toggle_admin'] = "<a href=\"/".$this->forum_url."\">Disable Admin</a>";
+        $this->data['toggle_admin'] = "<a href=\"/".$this->forum_url."\">Disable Admin</a><br>"
+                . "<a href=\"/avatars\">Manage User Avatars</a>";
         $this->render();
         
     }
