@@ -9,4 +9,7 @@
     <a href="{link}">{name}</a>
     </li>
     {/menudata}
+    <li>
+        <a href="/register">Register</a>/<a href="{loginouturl}">{loginout}</a>
+    </li>
 </ul>

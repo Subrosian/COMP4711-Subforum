@@ -40,12 +40,12 @@ class Application extends CI_Controller {
      * Render this page
      */
     function render() {
-        //if not logged in, display login menu item as well
+        //if not logged in, display login item; if logged in, then display logout item.
         //TBD: Make this occur depending on whether session values are set.
         $menu_choices = $this->config->item('menu_choices');
-        array_push($menu_choices['menudata'], array('name' => 'Login', 'link' => '/login'));
-        //and if login session value would be set, then instead: array_push($this->config->item('menu_choices'), array('name' => 'Logout', 'link' => '/logout')); is
-        
+        $menu_choices['loginouturl'] = "/login";
+        $menu_choices['loginout'] = "Login";
+      
         $this->data['menubar'] = $this->parser->parse('_menubar', $menu_choices, true);
         $this->data['content'] = $this->parser->parse($this->data['pagebody'], $this->data, true);
         
