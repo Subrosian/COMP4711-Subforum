@@ -13,7 +13,6 @@ class Application extends CI_Controller {
 
     protected $data = array();      // parameters for view components
     protected $id;                  // identifier for our content
-
     /**
      * Constructor.
      * Establish view parameters & load common helpers
@@ -33,13 +32,6 @@ class Application extends CI_Controller {
             array('layout_name' => 'Elaborate', 'layout_view' => 'forum_2', 'is_selected' => ''),
             array('layout_name' => 'Something', 'layout_view' => 'forum_4', 'is_selected' => '')
         );
-        $curr_layout = $this->input->post('layout');
-        if($curr_layout != null) {
-            foreach($layout_options as &$layout_option) {
-                if($layout_option['layout_view'] == $curr_layout)
-                    $layout_option['is_selected'] = " selected";
-            }
-        }        
         $this->data['layouts'] = $layout_options;
     }
 
@@ -49,6 +41,19 @@ class Application extends CI_Controller {
     function render() {
         $this->data['menubar'] = $this->parser->parse('_menubar', $this->config->item('menu_choices'),true);
         $this->data['content'] = $this->parser->parse($this->data['pagebody'], $this->data, true);
+        
+        //set which layout is currently selected, if possible.
+        //This is done here because it is an element of every page with a $forum_view
+        //element that is set, and depends on what that element is set to.
+        if(isset($this->forum_view)) {
+            $curr_layout = $this->forum_view;
+            if($curr_layout != null) {
+                foreach($this->data['layouts'] as &$layout_option) {
+                    if($layout_option['layout_view'] == $curr_layout)
+                        $layout_option['is_selected'] = " selected";
+                }
+            }        
+        }
 
         // finally, build the browser page!
         $this->data['data'] = &$this->data;
