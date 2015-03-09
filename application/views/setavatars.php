@@ -10,8 +10,13 @@
             </td>
             <td>
                 {uploadform}
+                <input type="hidden" name="username" value="{username}" size="100" />
+                <input type="file" name="userfile" size="100" />
+                <input type="submit" value="Update" />
+                </form>
             </td>
         </tr>
     {/data_avatars}
     </table>
+    {message}
 </div>
