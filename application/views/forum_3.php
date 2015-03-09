@@ -2,7 +2,8 @@
     {posts}
 <div class="post" style="background-color: {alternatingcolor}"><a name="p{postnum}"></a>
     {subject} - Posted by {username} <img src="data/images/{avatar}" title="{username}"> at {date}:
-    <p>{message}</p>
+    <p>{message}<br>
+    {actions}</p>
 </div>
     {/posts}
 </div>

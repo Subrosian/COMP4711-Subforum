@@ -10,31 +10,36 @@ if (!defined('APPPATH'))
  * ------------------------------------------------------------------------
  */
 ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-    <head>
-        <title>{title}</title>
-        <meta HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=UTF-8"/>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-        <link href="/assets/css/bootstrap.min.css" rel="stylesheet" media="screen"/>
-        <link rel="stylesheet" type="text/css" href="/assets/css/style.css"/>
-    </head>
-    <body>
-        <div class="container">
-            <div class="navbar">
-                <div class="navbar-inner">
-                    <a class="brand" href="/"><img src="/assets/images/home-logo.png" style="height:32px" /></a>
-                    {menubar} </div>
-            </div>           
-            <div id="content">
-                <h1>{title}</h1>
-                {content}
-            </div>
-            <div id="footer" class="span12">
-                Copyright &copy; 2014,  <a href="mailto:abeljacoblim@gmail.com">Jacob Lim</a>, Set 4O.
-            </div>
-        </div>
-        <script src="/assets/js/jquery-1.11.1.min.js"></script>
-        <script src="/assets/js/bootstrap.min.js"></script>
-    </body>
+<!DOCTYPE HTML>
+<!-- Website template by freewebsitetemplates.com -->
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>{title}</title>
+	<link rel="stylesheet" href="/assets/css/style.css" type="text/css">
+</head>
+<body>
+	<div id="header">
+		<div>
+			<div class="logo">
+				<a href="/">Subforum</a>
+			</div>
+			{menubar}
+		</div>
+	</div>
+	<div id="contents">
+            <h1>{title}</h1>
+            {content}
+	</div>
+	<div id="footer">
+		<div class="clearfix">
+			<div id="connect">
+				<a href="http://freewebsitetemplates.com/go/facebook/" target="_blank" class="facebook"></a><a href="http://freewebsitetemplates.com/go/googleplus/" target="_blank" class="googleplus"></a><a href="http://freewebsitetemplates.com/go/twitter/" target="_blank" class="twitter"></a><a href="http://www.freewebsitetemplates.com/misc/contact/" target="_blank" class="tumbler"></a>
+			</div>
+			<p>
+				Copyright &copy; 2014,  <a href="mailto:abeljacoblim@gmail.com">Jacob Lim</a>, Set 4O.
+			</p>
+		</div>
+	</div>
+</body>
 </html>
