@@ -34,14 +34,12 @@ if (!defined('APPPATH'))
             <br>
             
             Layout:
-               <form method="post">
-                    <select name="layout">
-                        <option value="forum_1">Standard</option>
-                        <option value="forum_3">Distinct</option>
-                        <option value="forum_2">Elaborate</option>
-                        <option value="forum_4">Something</option>
+               <form name="layoutform" method="post">
+                    <select name="layout" onChange="document.layoutform.submit()">
+                        {layouts}
+                        <option value="{layout_view}"{is_selected}>{layout_name}</option>
+                        {/layouts}
                     </select>
-                   <input type="submit" value="Update">
                </form>
 	</div>
 	<div id="footer">
