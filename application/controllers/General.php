@@ -103,6 +103,18 @@ class General extends Application {
 
         //Update the record, as this is an edit.
         $this->forum_model->update($record);
+        
+        //update the position of this in recent posts        
+        //delete the post from recent_posts - with the forum $forum, and postnum $postnum
+        $this->recent_posts2->delete($this->forum_url, $postnum);
+        
+        //add it to recent posts list
+        $recent_rec = $this->recent_posts->create();
+        $recent_rec->forum = $this->forum_url;
+        $recent_rec->postnum = $postnum;
+        $recent_rec->recency = $this->recent_posts->highest()+1;
+        $this->recent_posts->add($recent_rec);
+        
         redirect('/'.$this->forum_url.'/'.$switch);
         
         //Validation for the reply
@@ -118,6 +130,10 @@ class General extends Application {
     //delete the post with postnum $postnum
     function delete($postnum = 0, $switch = "") {
         $this->forum_model->delete($postnum); //deletes the post with the key $postnum
+        
+        //deletes the post from recent_posts as well - with the forum $forum, and postnum $postnum
+        $this->recent_posts2->delete($this->forum_url, $postnum);
+        
         redirect('/'.$this->forum_url.'/'.$switch);
     }
     
@@ -164,6 +180,13 @@ class General extends Application {
 
         //Save the record created for the reply.
         $this->forum_model->add($record);
+        
+        //add it to recent posts list
+        $recent_rec = $this->recent_posts->create();
+        $recent_rec->forum = $this->forum_url;
+        $recent_rec->postnum = $record->postnum;
+        $recent_rec->recency = $this->recent_posts->highest()+1;
+        $this->recent_posts->add($recent_rec);
         
         //set to admin, if admin
         if($switch == "admin")

@@ -25,12 +25,22 @@ class Welcome extends Application {
         $this->data = array_merge($this->data,$this->homemodel->all());
         
         //retrieve the announcements' data
+        //though, limit the length of the message to 200 characters.
         $announcement_1 = $this->posts_announcements->get($this->posts_announcements->highest());
         $announcement_2 = $this->posts_announcements->get($this->posts_announcements->highest()-1);
-        $this->data['ann1'] = "Posted by ".$announcement_1->username." at ".$announcement_1->date.": <br>"
-                            . $announcement_1->message;
-        $this->data['ann2'] = "Posted by ".$announcement_2->username." at ".$announcement_2->date.": <br>"
-                            . $announcement_2->message;
+        $ann1_msg = $announcement_1->message;
+        $ann2_msg = $announcement_2->message;
+
+        //add trailing "..."s if the length is > 200 chars
+        if(strlen($ann1_msg) > 200)
+            $ann1_msg = substr($ann1_msg, 0, 200)."...";
+        if(strlen($ann2_msg) > 200)
+            $ann2_msg = substr($ann2_msg, 0, 200)."...";
+        
+        $this->data['ann1'] = $announcement_1->subject." - Posted by ".$announcement_1->username." at ".$announcement_1->date.": <br>"
+                            . $ann1_msg;
+        $this->data['ann2'] = $announcement_2->subject." - Posted by ".$announcement_2->username." at ".$announcement_2->date.": <br>"
+                            . $ann2_msg;
 
         $this->render();
     }

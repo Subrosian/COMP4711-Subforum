@@ -42,7 +42,7 @@ class Posts extends MY_Model {
         return $this->data;
     }
     public function get_post($postnum) {
-        $post = &$this->data[$postnum-1];
+        $post = (array)$this->get($postnum); //postnum does not necessarily correspond to array element - so, getting it directly from DB
         //do procedure as with get_posts
             $record = $this->user_data->get($post['username']);
             if (isset($record)) {

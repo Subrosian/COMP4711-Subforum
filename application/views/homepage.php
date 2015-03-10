@@ -14,11 +14,9 @@
 <div class="recent">
     Latest posts:
     <p>
-        <a href="">Recent post 1</a><br>
-        <a href="">Recent post 2</a><br>
-        <a href="">Recent post 3</a><br>
-        <a href="">Recent post 4</a><br>
-        <a href="">Recent post 5</a>
+        {recentposts}
+        <a href="/{forum}#p{postnum}">{subject}</a><br>
+        {/recentposts}
     </p>
 </div>
 <div class="stats">
