@@ -11,9 +11,8 @@ class HomeModel extends CI_Model {
     var $data = array(
         'title' => 'Subforum',
         //'content' => '...', //actually, not going to write the content here; will put into view instead
-        'num_users' => '2',
-        'last_registered' => 'Jacob',
-        'online' => 'Jacob'
+        'last_registered' => 'n/a',
+        'online' => 'n/a'
     );
     
     /*To be done: Logic for the sitemap, including:
@@ -29,6 +28,10 @@ class HomeModel extends CI_Model {
 
     // retrieve the data of the home model
     public function all() {
+        $CI = &get_instance();
+        $this->data['num_users'] = $this->user_data->size();
+        if($this->user_data_lastreg->exists($this->user_data_lastreg->get('1')))
+            $this->data['last_registered'] = $this->user_data_lastreg->get('1')->username;
         return $this->data;
     }
     
