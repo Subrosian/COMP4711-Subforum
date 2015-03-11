@@ -49,10 +49,12 @@ as I continue working on this webapp.
 About assignment 2:
 Things to be done:
     -Make posts nested.
+    -Search posts by username, date, ...
 Note that the widgets at the bottom-right are currently not functional.
--The controllers currently have a lot of redundancy, as I have had issues with inheriting a parent controller.
-I have an issue where it says that the parent controller is not found. It seems like others have also had this
-issue with CodeIgniter, from what I've seen on stackoverflow.com.
+-The controllers currently have a lot of redundancy, as I have had issues with creating a parent controller
+for all of the other forum controllers to inherit; an issue occurs where it says that the parent controller
+is not found. It seems like others have also had this issue with CodeIgniter, from what I've seen on stackoverflow.com,
+    eg. http://stackoverflow.com/questions/21351808/codeigniter-extending-controller-controller-not-found.
 Alternatively, I could make one controller manage all of the separate forums to avoid this redundancy.
     </pre></p>
 </div>
