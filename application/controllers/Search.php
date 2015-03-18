@@ -122,6 +122,15 @@ class Search extends Application {
                 $squery .= " and ";
             $squery .= "author = '".$author."'";
         }
+        if($forum != "") {
+            if($squery != "")
+                $squery .= " and ";
+            $squery .= "forums =";
+            foreach($tosearch as $k => $v) {
+                if($tosearch[$k])
+                $squery .= " '".$k."'";
+            }
+        }
         
         //If there are no posts, display the message of there being no posts
         if(count($posts) == 0)
