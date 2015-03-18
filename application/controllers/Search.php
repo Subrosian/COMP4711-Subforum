@@ -47,6 +47,8 @@ class Search extends Application {
         foreach($forums as $forum) {
             if($this->input->post($forum) == 'on')
                 $tosearch[$forum] = true;
+            else
+                $tosearch[$forum] = false;
         }
         
         //Validation:
