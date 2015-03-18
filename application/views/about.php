@@ -49,7 +49,6 @@ as I continue working on this webapp.
 About assignment 2:
 Things to be done:
     -Make posts nested.
-    -Search posts by username, date, ...
 Note that the widgets at the bottom-right are currently not functional.
 -The controllers currently have a lot of redundancy, as I have had issues with creating a parent controller
 for all of the other forum controllers to inherit; an issue occurs where it says that the parent controller
