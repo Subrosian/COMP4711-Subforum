@@ -38,9 +38,9 @@ class Login extends Application {
         $invalid = array( 
         );
         
-        foreach($invalid as $item => $value) {
-            if($item)
-                $this->errors[] = $value;
+        foreach($invalid as $cond) {
+            if($cond[0])
+                $this->errors[] = $cond[1];
         }
         
         $this->data['pagebody'] = 'login';
