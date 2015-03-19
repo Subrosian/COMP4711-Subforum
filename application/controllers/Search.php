@@ -117,8 +117,9 @@ class Search extends Application {
             $squery .= "forums =";
             foreach($tosearch as $k => $v) {
                 if($tosearch[$k])
-                $squery .= " '".$k."'";
+                $squery .= " '".$k."'".", ";
             }
+            $squery = substr($squery, 0, strlen($squery)-2); //truncate the last ", "
         }
         
         //If there are no posts, display the message of there being no posts
