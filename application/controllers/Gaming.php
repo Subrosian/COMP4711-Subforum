@@ -118,7 +118,6 @@ class Gaming extends Application {
 
         //Update the record, as this is an edit.
         $this->forum_model->update($record);
-        redirect('/'.$this->forum_url.'/'.$switch);
         
         //update the position of this in recent posts        
         //delete the post from recent_posts - with the forum $forum, and postnum $postnum
@@ -138,6 +137,7 @@ class Gaming extends Application {
         //    redirect('/announcements');
         
         //$this->posts_announcements->
+        redirect('/'.$this->forum_url.'/'.$switch);
     }
     
     //delete the post with postnum $postnum

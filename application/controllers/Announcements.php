@@ -104,7 +104,6 @@ class Announcements extends Application {
 
         //Update the record, as this is an edit.
         $this->forum_model->update($record);
-        redirect('/'.$this->forum_url.'/'.$switch);
         
         //update the position of this in recent posts        
         //delete the post from recent_posts - with the forum $forum, and postnum $postnum
@@ -119,6 +118,7 @@ class Announcements extends Application {
         
         //Validation for the reply
         //Restrictions: Max character length, 
+        redirect('/'.$this->forum_url.'/'.$switch);
     }
     
     //delete the post with postnum $postnum
@@ -175,11 +175,6 @@ class Announcements extends Application {
         //Save the record created for the reply.
         $this->forum_model->add($record);
         
-        //set to admin, if admin
-        if($switch == "admin")
-            redirect('/'.$this->forum_url.'/admin');
-        redirect('/'.$this->forum_url);
-        
         //add it to recent posts list
         $recent_rec = $this->recent_posts->create();
         $recent_rec->forum = $this->forum_url;
@@ -195,6 +190,11 @@ class Announcements extends Application {
         //    redirect('/announcements');
         
         //$this->posts_announcements->
+        
+        //set to admin, if admin
+        if($switch == "admin")
+            redirect('/'.$this->forum_url.'/admin');
+        redirect('/'.$this->forum_url);
     }
     
     //quote a reply; reply with info from the quoted post, in the message area.
