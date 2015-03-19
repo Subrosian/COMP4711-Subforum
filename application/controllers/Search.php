@@ -11,12 +11,25 @@ protected $forums = array('Announcements', 'General', 'Gaming');
         $this->data['title'] = "Search";
         $this->data['submiturl'] = "/search/results";
         
+        //set default keyword and author values
+        if(!isset($this->data['keywords']))
+            $this->data['keywords'] = "";
+        if(!isset($this->data['author']))
+            $this->data['author'] = "";
+        
         //initialize forum checkboxes if not already
         if(!isset($this->data['forums'])) {
             $this->data['forums'] = array();
             foreach($this->forums as $forum)
                 $this->data['forums'][] = array('forum' => $forum, 'ischecked' => ' checked');
         }
+        
+        //Set default values of radio buttons if not set, as seen by value of asc_ischecked
+        if(!isset($this->data['asc_ischecked'])) {
+            $this->data['asc_ischecked'] = " checked";
+            $this->data['desc_ischecked'] = "";
+        }
+        
         $this->render();
     }
     
@@ -26,7 +39,19 @@ protected $forums = array('Announcements', 'General', 'Gaming');
         //array_sort array_sort($posts, strtotime($posts->date), SORT_DESC); 
         $keywords = $this->input->post('keywords');
         $author = $this->input->post('author');
-        
+        $order = $this->input->post('order');
+        //preserve these values in the case of an error that redirects to the search page
+        $this->data['keywords'] = $keywords;
+        $this->data['author'] = $author;        
+        if($order == "asc") {
+            $this->data['asc_ischecked'] = " checked";
+            $this->data['desc_ischecked'] = "";
+        } else
+        {
+            $this->data['asc_ischecked'] = "";
+            $this->data['desc_ischecked'] = " checked";            
+        }
+            
         //Search within forums listed within $forums.
         //If I were to have a flexible number of forums, this array could be handled by a database table, as opposed to hardcoded here.
         //However, as of this point, hard-coding is an issue due to the refactoring that would be involved in updating even the forum name,
@@ -37,7 +62,8 @@ protected $forums = array('Announcements', 'General', 'Gaming');
         
         //iterate through forums to construct $tosearch, an associative array containing what forums are to be searched.
         foreach($this->forums as $forum) {
-        //in iterating through the checkbox values, also preserve these values as the forum checkbox
+        //in iterating through the checkbox values, also pr
+        //eserve these values as the forum checkbox
         //values in the case of an error that still redirects to the search page
         //via setting the forums checkbox template parameters here.
             if($this->input->post($forum) == 'on') {
@@ -116,7 +142,6 @@ protected $forums = array('Announcements', 'General', 'Gaming');
         }
         
         //order the posts
-        $order = $this->input->post('order');
         if($order == "desc")
             $posts = $this->array_sort($posts, 'sdv', SORT_DESC);
         else {
