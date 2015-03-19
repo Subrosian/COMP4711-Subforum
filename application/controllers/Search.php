@@ -92,9 +92,11 @@ class Search extends Application {
         }
         
         //filter the posts by search keywords and author
+        //make it not case sensitive
         $newposts = array();
         foreach($posts as $post) { //add each post if made by $author and containing $keywords
-            if(($author == "" || $post['username'] == $author) && ($keywords == "" || strpos($post['message'], $keywords)))
+            if(($author == "" || strtolower($post['username']) == strtolower($author)) && 
+               ($keywords == "" || strpos(strtolower($post['message']), strtolower($keywords))))
             $newposts[] = $post;
         }
         $posts = $newposts;
