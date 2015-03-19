@@ -1,6 +1,7 @@
 <?php
 
 class Search extends Application {
+protected $forums = array('Announcements', 'General', 'Gaming');
     function index() {
         $this->data['pagebody'] = 'search';
         if(!isset($this->data['message']))
@@ -9,12 +10,13 @@ class Search extends Application {
         //set the $title, $posts, and $actions data (an array) for use in the view
         $this->data['title'] = "Search";
         $this->data['submiturl'] = "/search/results";
-
-        $this->data['forums'] = array(
-            array('forum' => 'Announcements'),
-            array('forum' => 'General'),
-            array('forum' => 'Gaming')
-        );
+        
+        //initialize forum checkboxes if not already
+        if(!isset($this->data['forums'])) {
+            $this->data['forums'] = array();
+            foreach($this->forums as $forum)
+                $this->data['forums'][] = array('forum' => $forum, 'ischecked' => ' checked');
+        }
         $this->render();
     }
     
@@ -29,13 +31,23 @@ class Search extends Application {
         //If I were to have a flexible number of forums, this array could be handled by a database table, as opposed to hardcoded here.
         //However, as of this point, hard-coding is an issue due to the refactoring that would be involved in updating even the forum name,
         //at this point.
-        $forums = array('Announcements', 'General', 'Gaming');
         $tosearch = array();
-        foreach($forums as $forum) {
-            if($this->input->post($forum) == 'on')
+        
+        $this->data['forums'] = array();
+        
+        //iterate through forums to construct $tosearch, an associative array containing what forums are to be searched.
+        foreach($this->forums as $forum) {
+        //in iterating through the checkbox values, also preserve these values as the forum checkbox
+        //values in the case of an error that still redirects to the search page
+        //via setting the forums checkbox template parameters here.
+            if($this->input->post($forum) == 'on') {
                 $tosearch[$forum] = true;
-            else
+                $this->data['forums'][] = array('forum' => $forum, 'ischecked' => ' checked');
+            }
+            else {
                 $tosearch[$forum] = false;
+                $this->data['forums'][] = array('forum' => $forum, 'ischecked' => '');
+            }
         }
         
         //Validation:
