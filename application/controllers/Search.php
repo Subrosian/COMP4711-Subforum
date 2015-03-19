@@ -1,11 +1,5 @@
 <?php
 
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 class Search extends Application {
     function index() {
         $this->data['pagebody'] = 'search';
@@ -24,13 +18,6 @@ class Search extends Application {
         $this->render();
     }
     
-    /*
-     * "These are the intended usecases for this forum:
-    1. Search for forum post (by user, or post content)
-            -Sort forum posts by date, ascending or descending, and alphabetically"
-     * Note: scrapping sorting "alphabetically" since there isn't really a reason to have an alphabetical sort.
-     * It's not really a feature that would have much meaning.
-     */
     function results() {        
 
         //Date recognition - can use strtotime for each post date, and order results based on what strtotime returns.
