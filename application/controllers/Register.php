@@ -25,13 +25,13 @@ class Register extends Application {
         //validation, and error handling, to be done here
         //Could dis-allow special characters in usernames, or at least angled brackets in such
         $invalid = array(
-            !(isset($username) && isset($password)) => "A username or password is not set.",
-            (strpos($username,'<') !== false || strpos($username,'>') !== false) => "No angled brackets allowed.",
-            $this->user_data->exists($username) => "A username by that name already exists." 
+            array(!($username != "" && $password != ""), "A username or password is not set."),
+            array((strpos($username,'<') !== false || strpos($username,'>') !== false), "No angled brackets allowed."),
+            array($this->user_data->exists($username), "A username by that name already exists.")
         );
-        foreach($invalid as $item => $value) {
-            if($item)
-                $this->errors[] = $value;
+        foreach($invalid as $cond) {
+            if($cond[0])
+                $this->errors[] = $cond[1];
         }
         
         $this->data['pagebody'] = 'register';

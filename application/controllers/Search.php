@@ -44,13 +44,23 @@ class Search extends Application {
         //If not, then display the index page with errors.
         
         //validation, and error handling, to be done here
+        
+        //check whether any of the forums were checked, here
+        $atleastoneforum = false;
+        foreach($tosearch as $item => $value) {
+            if($value) {
+                $atleastoneforum = true;
+                break;
+            }
+        }
+        
         $invalid = array(
-            !($keywords != "" || $author != "") => "Either 'keyword' or 'author' needs to be filled in.",
-            empty($tosearch) => "At least 1 forum needs to be checked.",
+            array((!($keywords != "" || $author != "")), "Either 'keyword' or 'author' needs to be filled in."),
+            array(!$atleastoneforum, "At least 1 forum needs to be checked.")
         );
-        foreach($invalid as $item => $value) {
-            if($item)
-                $this->errors[] = $value;
+        foreach($invalid as $cond) {
+            if($cond[0])
+                $this->errors[] = $cond[1];
         }
         
         //display errors if there exist any, and stop search here, displaying index instead.
