@@ -57,11 +57,14 @@ class Register extends Application {
             if(!$this->user_data_lastreg->exists('1')) { //if db record for this is not initialized
                 $record_lastreg = $this->user_data_lastreg->create();
                 $record_lastreg->id = '1';
+                $record_lastreg->username = $username;
+                $this->user_data_lastreg->add($record_lastreg);
             }
-            else
+            else {
                 $record_lastreg = $this->user_data_lastreg->get('1');
-            $record_lastreg->username = $username;
-            $this->user_data_lastreg->update($record_lastreg);
+                $record_lastreg->username = $username;
+                $this->user_data_lastreg->update($record_lastreg);
+            }
             
             $this->data['messageclass'] = "success";
             $this->data['message'] = "User <strong>".$username."</strong> has been created!";

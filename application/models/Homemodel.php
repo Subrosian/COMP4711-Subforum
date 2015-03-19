@@ -6,7 +6,7 @@
  *
  * @author jim
  */
-class HomeModel extends CI_Model {
+class HomeModel extends MY_Model {
 
     var $data = array(
         'title' => 'Subforum',
@@ -30,7 +30,7 @@ class HomeModel extends CI_Model {
     public function all() {
         $CI = &get_instance();
         $this->data['num_users'] = $this->user_data->size();
-        if($this->user_data_lastreg->exists($this->user_data_lastreg->get('1')))
+        if($this->user_data_lastreg->exists('1'))
             $this->data['last_registered'] = $this->user_data_lastreg->get('1')->username;
         
         //get most recent posts
