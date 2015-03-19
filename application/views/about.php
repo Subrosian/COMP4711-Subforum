@@ -55,5 +55,7 @@ for all of the other forum controllers to inherit; an issue occurs where it says
 is not found. It seems like others have also had this issue with CodeIgniter, from what I've seen on stackoverflow.com,
     eg. http://stackoverflow.com/questions/21351808/codeigniter-extending-controller-controller-not-found.
 Alternatively, I could make one controller manage all of the separate forums to avoid this redundancy.
+
+Logging in is not implemented yet; that is to be implemented with sessions.
     </pre></p>
 </div>
