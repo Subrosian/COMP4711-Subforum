@@ -126,7 +126,7 @@ class Search extends Application {
         if(count($posts) == 0)
             $this->data['message'] = "There were no results returned from this.";
         else
-            $this->data['message'] = "The search with ".$squery." yielded ".count($posts)." results:";
+            $this->data['message'] = "The search with ".$squery." yielded ".count($posts)." result".(count($posts)==1?"":"s").":";
 
         $this->data['pagebody'] = 'search_results';
 
