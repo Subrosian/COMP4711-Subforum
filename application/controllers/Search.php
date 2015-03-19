@@ -62,8 +62,8 @@ protected $forums = array('Announcements', 'General', 'Gaming');
         
         //iterate through forums to construct $tosearch, an associative array containing what forums are to be searched.
         foreach($this->forums as $forum) {
-        //in iterating through the checkbox values, also pr
-        //eserve these values as the forum checkbox
+        //in iterating through the checkbox values, also
+        //preserve these values as the forum checkbox
         //values in the case of an error that still redirects to the search page
         //via setting the forums checkbox template parameters here.
             if($this->input->post($forum) == 'on') {
@@ -79,10 +79,7 @@ protected $forums = array('Announcements', 'General', 'Gaming');
         //Validation:
         //- either keyword or author need to have a value
         //- at least 1 forum needs to be checked
-        //If not, then display the index page with errors.
-        
-        //validation, and error handling, to be done here
-        
+        //If not, then display the index page with errors.        
         //check whether any of the forums were checked, here
         $atleastoneforum = false;
         foreach($tosearch as $item => $value) {
