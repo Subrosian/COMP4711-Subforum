@@ -114,13 +114,28 @@ protected $forums = array('Announcements', 'General', 'Gaming');
         $posts = array();
         //Merge all posts within the forums listed within $tosearch[] within $posts (each post being an associative array)
         if($tosearch['Announcements']) {
-            $posts = array_merge($posts, $this->posts_announcements->get_posts());
+            //append URL of post to view parameters of post
+            $announcements_posts = $this->posts_announcements->get_posts();
+            foreach($announcements_posts as &$post) {
+                $post['posturl'] = "/announcements#p".$post['postnum'];
+            }
+            $posts = array_merge($posts, $announcements_posts);
         }
         if($tosearch['General']) {
-            $posts = array_merge($posts, $this->posts_general->get_posts());
+            //append URL of post to view parameters of post
+            $general_posts = $this->posts_general->get_posts();
+            foreach($general_posts as &$post) {
+                $post['posturl'] = "/general#p".$post['postnum'];
+            }
+            $posts = array_merge($posts, $general_posts);
         }
         if($tosearch['Gaming']) {
-            $posts = array_merge($posts, $this->posts_gaming->get_posts());
+            //append URL of post to view parameters of post
+            $gaming_posts = $this->posts_gaming->get_posts();
+            foreach($gaming_posts as &$post) {
+                $post['posturl'] = "/gaming#p".$post['postnum'];
+            }
+            $posts = array_merge($posts, $gaming_posts);
         }
         
         //filter the posts by search keywords and author
